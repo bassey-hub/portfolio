@@ -84,7 +84,7 @@ function BackgroundDots() {
   ];
 
   return (
-    <div className="pointer-events-none absolute inset-0" aria-hidden>
+    <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden>
       {dots.map((dot, i) => (
         <motion.div
           key={i}

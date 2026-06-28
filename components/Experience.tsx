@@ -35,7 +35,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="relative px-6 py-20 md:px-12 lg:px-16"
+      className="relative flex min-h-[90vh] flex-col justify-center px-6 py-24 md:px-12 lg:px-16 lg:py-32"
     >
       <motion.div
         className="mx-auto flex max-w-6xl flex-col gap-4 md:gap-8 lg:flex-row lg:items-start lg:justify-between"

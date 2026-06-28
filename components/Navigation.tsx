@@ -83,7 +83,7 @@ export function Navigation() {
           // @ts-ignore
           if (window.lenis) {
             // @ts-ignore
-            window.lenis.scrollTo(element);
+            window.lenis.scrollTo(element, { offset: -120 });
           } else {
             element.scrollIntoView({ behavior: "smooth" });
           }
@@ -99,7 +99,7 @@ export function Navigation() {
   return (
     <>
       <motion.header
-        className="fixed inset-x-0 top-0 z-50 flex items-start justify-between px-6 py-6 pointer-events-none md:px-12 md:py-8 lg:px-16"
+        className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 pointer-events-none md:items-start md:px-12 md:py-8 lg:px-16"
         initial="hidden"
         animate="visible"
       >
@@ -150,10 +150,10 @@ export function Navigation() {
         </motion.nav>
 
         {/* Mobile Hamburger Button */}
-        <div className="pointer-events-auto relative z-50 mt-2 md:hidden">
+        <div className="pointer-events-auto relative z-50 md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-white/20 bg-black/50 backdrop-blur-md transition-colors hover:bg-white/10"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-white/20 bg-black/50 transition-colors hover:bg-white/10"
             aria-label="Toggle menu"
           >
             <motion.span
