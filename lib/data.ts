@@ -1,3 +1,5 @@
+import { getAssetUrl } from "./utils";
+
 export const navLinks = [
   { label: "home", href: "/#home" },
   { label: "about", href: "/#about" },
@@ -30,8 +32,8 @@ export const projects = [
     longDescription:
       "Built an interactive full-stack interface with Streamlit, delivering real-time query previews, automated chart visualizations, and execution statistics to enhance data analysis",
     technologies: ["streamlit (python)"],
-    githubUrl: "#",
-    imageUrl: "/assets/aetherdb.png",
+    githubUrl: "https://github.com/bassey-hub/AetherDB",
+    imageUrl: getAssetUrl("/assets/aetherdb.png"),
     href: "/projects/aetherdb",
   },
   {
@@ -43,7 +45,7 @@ export const projects = [
       "A comprehensive management system that streamlines reporting and tracking of maintenance issues across multiple university hostel facilities, featuring role-based dashboards. It replaces inefficient manual logbooks with a digital platform, allowing students to submit requests instantly and administrators to track repairs in real-time.",
     technologies: ["html", "css", "javascript", "node.js", "express.js", "sqlite", "REST API"],
     githubUrl: "https://github.com/bassey-hub/hostel-maintenance-system",
-    imageUrl: "/assets/hostel-maintenance.png",
+    imageUrl: getAssetUrl("/assets/hostel-maintenance.png"),
     href: "/projects/hostel-maintenance",
   },
   {
@@ -60,7 +62,7 @@ export const projects = [
       "manifest v3",
       "chrome storage api"
     ],
-    videoUrl: "/assets/pastepal-demo.mp4",
+    videoUrl: getAssetUrl("/assets/pastepal-demo.mp4"),
     href: "/projects/pastepal",
   },
 ] as const;

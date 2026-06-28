@@ -9,6 +9,7 @@ import {
   staggerItem,
   springSmooth,
 } from "@/lib/motion";
+import { getAssetUrl } from "@/lib/utils";
 
 function RedMarker({ className = "" }: { className?: string }) {
   return (
@@ -171,7 +172,7 @@ export function Hero() {
           }}
         >
           <Image
-            src="/assets/photo.png"
+            src={getAssetUrl("/assets/photo.png")}
             alt="Basirat Basanya portrait"
             width={1186}
             height={1520}

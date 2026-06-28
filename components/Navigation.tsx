@@ -4,8 +4,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { navLinks } from "@/lib/data";
 import { springSnappy } from "@/lib/motion";
+import { getAssetUrl } from "@/lib/utils";
 
 const navContainer = {
   hidden: {},
@@ -65,6 +67,34 @@ const mobileMenuVariants = {
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If the link is a hash link for the home page (e.g. "/#about")
+    if (href.startsWith("/#")) {
+      const targetId = href.substring(2); // "about"
+      
+      // If we are already on the home page, just smoothly scroll to it
+      if (pathname === "/") {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+          // @ts-ignore
+          if (window.lenis) {
+            // @ts-ignore
+            window.lenis.scrollTo(element);
+          } else {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+      // If we are on a project page, let the router navigate normally
+    }
+    
+    // Close the mobile menu if it's open
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -84,7 +114,7 @@ export function Navigation() {
             whileTap={{ scale: 0.95 }}
           >
             <Image
-              src="/assets/logo-ish.png"
+              src={getAssetUrl("/assets/logo-ish.png")}
               alt="Basirat Basanya logo"
               width={478}
               height={458}
@@ -102,7 +132,7 @@ export function Navigation() {
         >
           {navLinks.map((link) => (
             <motion.div key={link.href} variants={navItem}>
-              <Link href={link.href}>
+              <Link href={link.href} onClick={(e) => handleScroll(e, link.href)}>
                 <motion.span
                   className="font-ticketing text-[12px] md:text-[13px] lowercase tracking-wide text-white/80"
                   whileHover={{
@@ -158,7 +188,7 @@ export function Navigation() {
             >
               {navLinks.map((link) => (
                 <motion.div key={link.href} variants={navItem}>
-                  <Link href={link.href} onClick={() => setIsOpen(false)}>
+                  <Link href={link.href} onClick={(e) => handleScroll(e, link.href)}>
                     <motion.span
                       className="font-ticketing text-2xl lowercase tracking-widest text-white"
                       whileHover={{ color: "#FF2D2D" }}

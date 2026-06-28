@@ -22,6 +22,8 @@ export function SmoothScrollProvider({
     });
 
     lenisRef.current = lenis;
+    // @ts-ignore
+    window.lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 

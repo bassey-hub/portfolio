@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getAssetUrl } from "@/lib/utils";
 
 export function Preloader() {
   const [progress, setProgress] = useState(0);
@@ -69,7 +70,7 @@ export function Preloader() {
               }}
             />
             <Image
-              src="/assets/mini-me.png"
+              src={getAssetUrl("/assets/mini-me.png")}
               alt="Mascot Loading"
               width={300}
               height={300}

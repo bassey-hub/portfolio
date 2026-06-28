@@ -11,6 +11,7 @@ import {
   springBouncy,
   floatingAnimation,
 } from "@/lib/motion";
+import { getAssetUrl } from "@/lib/utils";
 
 function SocialIcon({ icon }: { icon: string }) {
   if (icon === "linkedin") {
@@ -156,7 +157,7 @@ export function Contact() {
         >
           <motion.div animate={floatingAnimation}>
             <Image
-              src="/assets/mini-me.png"
+              src={getAssetUrl("/assets/mini-me.png")}
               alt="Cartoon mascot illustration"
               width={500}
               height={263}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { OutlineButton } from "@/components/ui/OutlineButton";
 import { fadeUp, slideLeft, staggerContainer, staggerItem } from "@/lib/motion";
+import { getAssetUrl } from "@/lib/utils";
 
 export function About() {
   return (
@@ -45,7 +46,7 @@ export function About() {
             className="flex items-center gap-8"
           >
             <OutlineButton
-              href="/assets/resume.pdf"
+              href={getAssetUrl("/assets/resume.pdf")}
               external
               download="Basirat_Basanya_Resume.pdf"
               className="font-ticketing !lowercase tracking-[0.1em]"
