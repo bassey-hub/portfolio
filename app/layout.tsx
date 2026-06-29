@@ -3,6 +3,7 @@ import { dmSans, newIconScript, stretchPro, ticketing } from "@/lib/fonts";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Preloader } from "@/components/ui/Preloader";
+import { RefreshRedirect } from "@/components/ui/RefreshRedirect";
 import { Navigation } from "@/components/Navigation";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         className="min-h-full bg-black font-sans text-white antialiased"
       >
         <SmoothScrollProvider>
+          <RefreshRedirect />
           <Preloader />
           <CustomCursor />
           <Navigation />

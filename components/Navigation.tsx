@@ -99,7 +99,7 @@ export function Navigation() {
   return (
     <>
       <motion.header
-        className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 pointer-events-none md:items-start md:px-12 md:py-8 lg:px-16"
+        className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 pointer-events-none md:items-start md:px-12 md:py-8 lg:px-16 transform-gpu"
         initial="hidden"
         animate="visible"
       >
@@ -150,7 +150,7 @@ export function Navigation() {
         </motion.nav>
 
         {/* Mobile Hamburger Button */}
-        <div className="pointer-events-auto relative z-50 md:hidden">
+        <div className="pointer-events-auto relative z-50 mt-2 md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-white/20 bg-black/50 transition-colors hover:bg-white/10"
@@ -180,7 +180,7 @@ export function Navigation() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="pointer-events-auto fixed inset-0 z-40 flex flex-col items-end justify-start bg-[#131313] px-6 pt-32 md:hidden"
+            className="pointer-events-auto fixed inset-0 z-40 flex flex-col items-end justify-start bg-[#131313] px-6 pt-32 md:hidden transform-gpu"
           >
             <motion.nav
               variants={navContainer}
